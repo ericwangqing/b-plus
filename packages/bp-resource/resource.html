@@ -1,11 +1,11 @@
-<template name="bp_fileUpload">
+<template name="bpResourceUpload">
   <h3>Select file(s) to upload:</h3>
-  <input type="file" name="files" multiple class="fileUploader">
+  <input type="file" name="files" multiple class="resource-uploader">
 </template>
 
-<template name="bp_fileList">
+<template name="bpResourceList">
   {{#each files}}
-    {{cfsDownloadButton "ResourcesFS" class="btn btn-primary btn-mini" content=filename}}
+    {{cfsDownloadButton "BpResourcesFS" class="btn btn-primary btn-mini" content=filename}}
   {{else}}
     No files uploaded.
   {{/each}}
