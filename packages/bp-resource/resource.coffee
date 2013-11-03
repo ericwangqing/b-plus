@@ -1,3 +1,5 @@
+@Resources = new Meteor.Collection 'resources'
+@ResourcesFS = new CollectionFS 'resources', autopublish: false
 if Meteor.isClient
   Template.bp_fileUpload.events
     'change .fileUploader': (e) ->
@@ -7,7 +9,3 @@ if Meteor.isClient
 
   Template.bp_fileList.files = ->
     ResourcesFS.find {}, sort: uploadDate: -1
-
-if Meteor.isServer
-  @Resources = new Meteor.Collection 'resources'
-  @ResourcesFS = new CollectionFS 'resources', autopublish: false

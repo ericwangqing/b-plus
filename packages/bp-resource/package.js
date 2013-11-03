@@ -3,9 +3,8 @@ Package.describe({
 });
 
 Package.on_use(function(api, where){
-  api.use(['coffee', 'collectionFS', 'minimongo', 'mongo-livedata', 'templating'], ['client', 'server']);
-
-  api.add_files(['resource.js'], ['client', 'server']);
-
+  api.use(['coffeescript', 'collectionFS', 'minimongo', 'mongo-livedata', 'templating'], ['client', 'server']);
+  // 注意！！ 下面的加载顺序很重要，要先加载模板，再加载脚本
   api.add_files(['resource.html'], 'client');
+  api.add_files(['resource.coffee'], ['client', 'server']);
 });
