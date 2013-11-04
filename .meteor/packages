@@ -12,4 +12,6 @@ collectionFS
 accounts-base
 bootstrap-3
 bp-resource
+bp-test-extension
+bp-packages-manager
 livescript

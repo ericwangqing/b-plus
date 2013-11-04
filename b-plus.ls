@@ -1,3 +1,5 @@
+Bp-packages-manager.use 'bp-resource' 
+
 if Meteor.isClient
   Template.hello.greeting = ->
     "欢迎进入b-plus的世界."
@@ -6,5 +8,5 @@ if Meteor.isClient
     console.log "You pressed the button" if console
   
 if Meteor.isServer
-  Meteor.startup -> 
+  Meteor.startup ->  
  

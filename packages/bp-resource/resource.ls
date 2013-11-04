@@ -1,5 +1,7 @@
 @Bp-resource = class Bp-resource 
-  (collection)->
+  ->
+    collection = arguments[0] or 'bp-resources'
+  # (collection)->
     @resource = new Meteor.Collection collection
     @resource-fs = new CollectionFS collection, autopublish: false
 
@@ -17,17 +19,3 @@
   add-resource-list-handler: !->
     Template.bp-resource-list.files = ~>
       @resource-fs.find {}, sort: upload-date: -1    
-
-new Bp-resource 'bp-resources' .initial! 
-
-
-# @Bp-resources = new Meteor.Collection 'bp-resources'
-# @Bp-resources-fS = new CollectionFS 'bp-resources', autopublish: false
-# if Meteor.is-client
-#   Template.bp-resource-upload.events 'change .resource-uploader': (e) ->
-#     files = e.target.files
-#     for file in files
-#       Bp-resources-fS.store-file file
-
-#   Template.bp-resource-list.files = ->
-#     Bp-resources-fS.find {}, sort: upload-date: -1
